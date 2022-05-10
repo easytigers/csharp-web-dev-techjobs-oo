@@ -1,9 +1,12 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class CoreCompetency
+    public class CoreCompetency : JobField
     {
-        // private int id;
+        public CoreCompetency(string value) : base(value)
+        {
+        }
+        /* // private int id;
         private static int nextId = 1;
         // private string value;
 
@@ -36,7 +39,7 @@ namespace TechJobsOO
         public override string ToString()
         {
             return Value;
-        }
+        } */
     }
     
 }

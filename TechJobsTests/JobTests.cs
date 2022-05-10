@@ -39,5 +39,43 @@ namespace TechJobsTests
             Assert.IsFalse(job1.Id.Equals(job2.Id)); // job1 Id differs from job2 Id
         }
 
+        //Test for ToString()
+        [TestMethod]
+        public void ToStringTest()
+        {
+            Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            string jobString = job.ToString();
+            char firstChar = jobString[0];
+            char lastChar = jobString[jobString.Length - 1];
+
+            Assert.IsTrue(firstChar == '\n');
+            Assert.IsTrue(lastChar == '\n');
+
+            //Second Test for ToString()
+            Assert.AreEqual(jobString, 
+                $"\nID: {job.Id}\n" +
+                $"Name: {job.Name}\n" +
+                $"Employer: {job.EmployerName.Value}\n" +
+                $"Location: {job.EmployerLocation.Value}\n" +
+                $"Position Type: {job.JobType.Value}\n" +
+                $"Core Competency: {job.JobCoreCompetency.Value}\n");
+        }
+
+        //Test "Data not available"
+        [TestMethod]
+        public void EmptyToStringTest()
+        {
+            Job job = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+            string jobString = job.ToString();
+
+            Assert.AreEqual(jobString,
+                $"\nID: {job.Id}\n" +
+                $"Name: Data not available\n" +
+                $"Employer: Data not available\n" +
+                $"Location: Data not available\n" +
+                $"Position Type: Data not available\n" +
+                $"Core Competency: Data not available\n");
+
+        }
     }
 }

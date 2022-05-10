@@ -1,9 +1,12 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class PositionType
+    public class PositionType : JobField
     {
-        public int Id { get; }
+        public PositionType(string value) : base(value)
+        {
+        }
+        /* public int Id { get; }
         private static int nextId = 1;
         public string Value { get; set; }
 
@@ -33,6 +36,6 @@ namespace TechJobsOO
         public override string ToString()
         {
             return Value;
-        }
+        } */
     }
 }
